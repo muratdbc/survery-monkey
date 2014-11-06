@@ -1,23 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 
-    normalize.css removes cross-browser differences in defaults, e.g.,
-    differences in how form elements appear between Firefox and IE
-    See: http://necolas.github.com/normalize.css/
-  -->
-  <link rel="stylesheet" href="/css/normalize.css">
-  <!--
-    application.css is where you put your styles
-  -->
-  <link rel="stylesheet" href="/css/application.css">
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/js/application.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/application.css">
 
   <title></title>
 </head>
 <body>
   <%= yield %>
 </body>
+
+ <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" id="title_of_webpage" href="/">Gorillaz Surveys</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <%if session[:user_id] %>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="nav_options"><a href="#">New Survey</a></li>
+        <li><a href="#">Your Surveys</a></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+      <%else%>
+      <ul class="nav navbar-nav">
+        <li><a href="/signup">Sign Up</a></li>
+      </ul>
+      <form class="navbar-form navbar-right" role="form" action="/login" method="post">
+        <div class="form-group">
+          <input type="email" class="form-control" placeholder="email" name="email">
+          <input type="password" class="form-control" placeholder="password" name="password">
+        </div>
+        <button type="submit" class="btn btn-default">Log In</button>
+      </form>
+      <%end%>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/application.js"></script>
+
 </html>
