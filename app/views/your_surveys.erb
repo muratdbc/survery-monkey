@@ -2,10 +2,9 @@
 <div class="container">
   <h1>Welcome User <%=@user.username%></h1>
   <div id="all_surveys">
-    <h3>All Surveys</h3>
-    <%Survey.all.each do |survey|%>
-      <div><a href="/survey/<%= survey.id %>"><%=survey.title%></a></div>
-      <div>Author: <%=survey.user.username%></div>
+    <h3>Your Surveys</h3>
+    <%@user.surveys.each do |survey|%>
+      <div><a href="/survey/<%=survey.id%>"><%=survey.title%></a></div>
       <%end%>
   </div>
   <% else %>
@@ -13,4 +12,3 @@
     <h1>You need to log in to view gorilla notes</h1>
   </div>
   <% end %>
-

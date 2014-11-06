@@ -2,9 +2,8 @@ body { padding-top: 70px; }
 
 .navbar-fixed-top {
   background-color: #34495e;
-  color: white;
+  border: #34495e;
 }
-
 
 .container {
   margin: 20px auto;
@@ -16,3 +15,16 @@ body { padding-top: 70px; }
   color: white;
 }
 
+#title_of_webpage:hover {
+  color: #2ecc71;
+  background-color: #ecf0f1;
+
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: white;
+}
+.navbar-default .navbar-nav>li>a:hover {
+  color: #2ecc71;
+  background-color: #ecf0f1;
+}
