@@ -10,8 +10,10 @@ get '/signup' do
   erb :signup
 end
 
-post 'signup' do
-  #need to implement
+post '/signup' do
+  u = User.create(:username => params[:username], :email => params[:email], :password => params[:password])
+  session[:user_id] = u.id
+  redirect '/'
 end
 
 post '/login' do
@@ -33,19 +35,21 @@ end
 
 post '/survey/:id/take' do
   #increment choice frequency
-  params[:choices].each do |k, v|
-    temp = Choice.find(v.to_i)
-    temp.choice_frequency += 1
-    temp.save
+  if params[:choices]
+    params[:choices].each do |k, v|
+      temp = Choice.find(v.to_i)
+      temp.choice_frequency += 1
+      temp.save
+    end
   end
   redirect '/'
 end
 
 get '/:id/surveys' do
  if session[:user_id]
-    @user = User.find(session[:user_id])
-  end
-  erb :your_surveys
+  @user = User.find(session[:user_id])
+end
+erb :your_surveys
 end
 
 
