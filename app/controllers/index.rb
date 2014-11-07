@@ -53,3 +53,20 @@ get '/logout' do
   session[:user_id] = nil
   redirect '/'
 end
+
+get '/survey/new' do
+  @survey = current_user.surveys.new()
+  erb :"surveys/new"
+end
+
+
+post '/survey' do
+  @survey = current_user.surveys.new(title: params[:title])
+
+  if @survey.save
+
+    redirect "/#{current_user}/survey"
+  else #validations failed
+    erb :"surveys/new" # The Form With Errors
+  end
+end

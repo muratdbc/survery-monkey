@@ -12,7 +12,23 @@
 <body>
   <%= yield %>
 </body>
-
+ <div id="modal-background">
+        <div id="modal">
+          <button id="close">Close</button>
+            <form id="create_survey_form" action="/survey" method="post">
+              Title:<input type="text" id="title" name="title"><br>
+              <input id="add_question" type="button" value="add question">
+              <input type="submit" id="create_survey"></input>
+            </form>
+        </div>
+    </div>
+    <div id="question_form">
+              Question:<input type="text" id="question_text" name="question"><br>
+              Option1:<input type="text" id="option1" name="option1"><br>
+              Option2:<input type="text" id="option2" name="option2"><br>
+              Option3:<input type="text" id="option3" name="option3"><br>
+        </div>
+    </div>
  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -30,7 +46,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <%if session[:user_id] %>
       <ul class="nav navbar-nav navbar-right">
-        <li class="nav_options"><a href="#">New Survey</a></li>
+        <li id="open" class="nav_options"><a href="#">New Survey</a></li>
         <li><a href="/<%=session[:user_id]%>/surveys">Your Surveys</a></li>
         <li><a href="/logout">Logout</a></li>
       </ul>

@@ -1,6 +1,7 @@
 <% if session[:user_id] %>
 <div class="container">
-  <h1>Welcome User <%=@user.username%></h1>
+
+ <h1>Welcome User <%=@user.username%></h1>
   <div id="all_surveys">
     <h3>All Surveys</h3>
     <%Survey.all.each do |survey|%>
@@ -12,5 +13,8 @@
   <div class="container">
     <h1>You need to log in to view gorilla notes</h1>
   </div>
-  <% end %>
 
+
+</div>
+
+  <% end %>
