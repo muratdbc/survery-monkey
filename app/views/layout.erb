@@ -47,7 +47,7 @@
       <%if session[:user_id] %>
       <ul class="nav navbar-nav navbar-right">
         <li id="open" class="nav_options"><a href="#">New Survey</a></li>
-        <li><a  href="#">Your Surveys</a></li>
+        <li><a href="/<%=session[:user_id]%>/surveys">Your Surveys</a></li>
         <li><a href="/logout">Logout</a></li>
       </ul>
       <%else%>
