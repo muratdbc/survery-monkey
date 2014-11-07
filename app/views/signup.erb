@@ -1,5 +1,5 @@
 <div class="container">
-  <form class="form-horizontal" action='/signup' method="post">
+  <form id="frm" class="form-horizontal" action='/signup' method="post">
   <fieldset>
     <div id="legend">
       <legend class="">Register</legend>
@@ -9,7 +9,7 @@
       <label class="control-label"  for="username">Username</label>
       <div class="controls">
         <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
-        <p class="help-block">Username can contain any letters or numbers, without spaces</p>
+        <p class="help-block">Username can contain any letters or numbers, without spaces, 3-15 characters</p>
       </div>
     </div>
 
@@ -27,7 +27,7 @@
       <label class="control-label" for="password">Password</label>
       <div class="controls">
         <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
-        <p class="help-block">Password should be at least 4 characters</p>
+        <p class="help-block">Password should be at least 4 characters, max 20</p>
       </div>
     </div>
 
