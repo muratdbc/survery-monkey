@@ -4,7 +4,7 @@
   <div id="all_surveys">
     <h3>All Surveys</h3>
     <%Survey.all.each do |survey|%>
-      <div><a href="/survey/<%= survey.id %>"><%=survey.title%></a></div>
+      <div><a href="/survey/<%= survey.id %>/take"><%=survey.title%></a></div>
       <div>Author: <%=survey.user.username%></div>
       <%end%>
   </div>
